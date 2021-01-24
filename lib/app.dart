@@ -23,31 +23,38 @@ class App extends StatelessWidget {
         return FutureBuilder(
           future: Provider.of<CatalogModel>(context).init(),
           builder: (context, snapshot) {
-            return MaterialApp(
-              title: kAppTitle,
-              theme: fiboTheme,
-              // Basic routing
-              initialRoute: IndexPage.route,
-              routes: <String, WidgetBuilder>{
-                IndexPage.route: (context) => IndexPage(),
-                AboutPage.route: (context) => AboutPage(),
-                OrderPage.route: (context) => OrderPage(),
-                CartPage.route: (context) => CartPage(),
-              },
-              // Unknown page handler
-              onUnknownRoute: (RouteSettings settings) {
-                return MaterialPageRoute<void>(
-                  settings: settings,
-                  builder: (context) => NotFoundPage(),
-                );
-              },
-              // Localization
-              localizationsDelegates: GlobalMaterialLocalizations.delegates,
-              supportedLocales: [
-                Locale('ru'),
-              ],
-              locale: Locale('ru'),
-            );
+            print(snapshot);
+            if (snapshot.hasError) {
+              print(snapshot.error.toString());
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              return MaterialApp(
+                title: kAppTitle,
+                theme: fiboTheme,
+                // Basic routing
+                initialRoute: IndexPage.route,
+                routes: <String, WidgetBuilder>{
+                  IndexPage.route: (context) => IndexPage(),
+                  AboutPage.route: (context) => AboutPage(),
+                  OrderPage.route: (context) => OrderPage(),
+                  CartPage.route: (context) => CartPage(),
+                },
+                // Unknown page handler
+                onUnknownRoute: (RouteSettings settings) {
+                  return MaterialPageRoute<void>(
+                    settings: settings,
+                    builder: (context) => NotFoundPage(),
+                  );
+                },
+                // Localization
+                localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                supportedLocales: [
+                  Locale('ru'),
+                ],
+                locale: Locale('ru'),
+              );
+            }
+            return Container(color: Colors.black);
           }
         );
       },

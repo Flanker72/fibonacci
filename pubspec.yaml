@@ -21,6 +21,8 @@ dependencies:
   cloud_firestore: any
   #share: any
   carousel_slider: any
+  auto_size_text: any
+  flutter_spinbox: any
   #firebase_auth: any
   #flutter_spinkit: any
   #shimmer: any

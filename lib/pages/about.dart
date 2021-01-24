@@ -33,7 +33,17 @@ class AboutPage extends StatelessWidget {
                   'ДИЗАЙН С ФИЛОСОФИЕЙ',
                   style: Theme.of(context).textTheme.headline5,
                 ),
-                SizedBox(height: 16.0),
+              ],
+            ),
+          ),
+          Image.asset('assets/interior2.jpg'),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 24.0,
+              horizontal: 16.0,
+            ),
+            child: Column(
+              children: [
                 Text(
                     'Наши дизайнеры отталкивались от европейских трендов и хотели не просто создать комфортный дизайн для наших гостей, но и показать всей Тюмени наш Новаторский подход к делу во всех смыслах этого слова.'),
                 SizedBox(height: 8.0),
@@ -64,9 +74,17 @@ class AboutPage extends StatelessWidget {
                   'ЧТО ПО КОКТЕЙЛЯМ?',
                   style: Theme.of(context).textTheme.headline5,
                 ),
-                SizedBox(
-                  height: 16.0,
-                ),
+              ],
+            ),
+          ),
+          Image.asset('assets/cocktails.jpg'),
+          Padding(
+            padding: EdgeInsets.symmetric(
+              vertical: 24.0,
+              horizontal: 16.0,
+            ),
+            child: Column(
+              children: [
                 Text(
                     'Наша авторская коктейльная карта станет для вас искушением!'),
                 SizedBox(height: 8.0),
@@ -74,7 +92,7 @@ class AboutPage extends StatelessWidget {
                     'Даже если вы не знаете своих предпочтений, то мы сможем подобрать под вас напиток, который захочется повторить. Фруктовый, ягодный, пряный, сладкий, кислый, освежающий, терпкий, мягкий, легкий, крепкий, воздушный… любой. Просто приходи и пробуй!'),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

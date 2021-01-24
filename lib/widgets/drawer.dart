@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:fiboeda/constants.dart';
 import 'package:fiboeda/models/cart.dart';
 import 'package:fiboeda/utils.dart';
@@ -20,7 +21,7 @@ class FiboDrawer extends StatelessWidget {
             minLeadingWidth: 20.0,
             title: Text(
               'Фибо Меню',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 1,
             ),
             dense: true,
@@ -36,14 +37,14 @@ class FiboDrawer extends StatelessWidget {
             minLeadingWidth: 20.0,
             title: Text(
               'Мой заказ',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 1,
             ),
             trailing: Consumer<CartModel>(builder: (context, cart, child) {
-              return Text(
+              return cart.totalItems > 0 ? Text(
                 '${cart.totalPrice}₽',
                 style: Theme.of(context).textTheme.headline6,
-              );
+              ) : Text('');
             }),
             dense: true,
             onTap: () {
@@ -59,7 +60,7 @@ class FiboDrawer extends StatelessWidget {
             minLeadingWidth: 20.0,
             title: Text(
               'Бронь столиков',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 1,
             ),
             dense: true,
@@ -74,7 +75,7 @@ class FiboDrawer extends StatelessWidget {
             child: Text(
               'Информация',
               maxLines: 1,
-              style: Theme.of(context).textTheme.headline6.copyWith(
+              style: Theme.of(context).textTheme.subtitle1.copyWith(
                     color: Colors.grey[400],
                   ),
             ),
@@ -82,7 +83,7 @@ class FiboDrawer extends StatelessWidget {
           ListTile(
             title: Text(
               'Про Фибоначчи',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 1,
             ),
             dense: true,
@@ -94,7 +95,7 @@ class FiboDrawer extends StatelessWidget {
           ListTile(
             title: Text(
               'Доставка и оплата',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 1,
             ),
             dense: true,
@@ -106,7 +107,7 @@ class FiboDrawer extends StatelessWidget {
           ListTile(
             title: Text(
               'Политика конфиденциальности',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 1,
               softWrap: false,
               overflow: TextOverflow.fade,
@@ -120,7 +121,7 @@ class FiboDrawer extends StatelessWidget {
           ListTile(
             title: Text(
               'О приложении',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.subtitle1,
               maxLines: 1,
             ),
             dense: true,
@@ -149,7 +150,7 @@ class FiboDrawer extends StatelessWidget {
             child: Text(
               'Контакты',
               maxLines: 1,
-              style: Theme.of(context).textTheme.headline6.copyWith(
+              style: Theme.of(context).textTheme.subtitle1.copyWith(
                     color: Colors.grey[400],
                   ),
             ),
@@ -173,10 +174,25 @@ Widget _drawerHeader(BuildContext context) {
             fit: BoxFit.contain,
           ),
           Expanded(
-            child: Text(
-              kAppTitle,
-              style: Theme.of(context).textTheme.headline5,
-              textAlign: TextAlign.center,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AutoSizeText(
+                    'Фибоначчи',
+                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white),
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                  ),
+                  AutoSizeText(
+                    'кухня • бар',
+                    style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
           ),
         ],
@@ -229,7 +245,7 @@ List<_FiboDrawerItem> socialItems = [
   _FiboDrawerItem(
     title: 'Instagram',
     icon: BrandIcons.instagram,
-    url: 'https://instagram.com/fibonacci_rest/',
+    url: 'https://www.instagram.com/fibonacci_rest/',
   ),
   _FiboDrawerItem(
     title: 'fiboeda.ru',

@@ -12,11 +12,9 @@ void main() {
         if (snapshot.hasError) {
           print(snapshot.error.toString());
         }
-
         if (snapshot.hasData) {
           return App();
         }
-
         return Container(color: Colors.black);
       },
     ),
