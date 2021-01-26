@@ -6,14 +6,19 @@ import 'package:flutter/foundation.dart';
 class Product {
   /// Product unique identifier (string ID from Firebase)
   final String id;
+
   /// Product name
   final String title;
+
   /// Link to image if exists
   final String image;
+
   /// Product description
   final String description;
+
   /// Price of one product
   final int price;
+
   /// Parent category (Reference in Firebase)
   final DocumentReference parent;
 
@@ -35,10 +40,13 @@ class Product {
 class Category {
   /// Category unique identifier (string ID from Firebase)
   final String id;
+
   /// Category name
   final String title;
+
   /// Order in list
   final int order;
+
   /// Link to image if exists
   final String image;
 
@@ -57,6 +65,7 @@ class Category {
 class CatalogModel {
   /// List of categories
   List<Category> categories = [];
+
   /// List of products
   List<Product> products = [];
 

@@ -180,4 +180,3 @@ Widget _cardBuilder(BuildContext context, Product product) {
     ),
   );
 }
-

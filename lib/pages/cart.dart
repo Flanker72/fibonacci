@@ -17,9 +17,7 @@ class CartPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Корзина заказа'),
       ),
-      body: cart.totalItems > 0 
-          ? _Cart(cart: cart)
-          : _EmptyCart(cart: cart),
+      body: cart.totalItems > 0 ? _Cart(cart: cart) : _EmptyCart(cart: cart),
     );
   }
 }
@@ -69,11 +67,13 @@ class _EmptyCart extends StatelessWidget {
           Text('Ещё ничего не добавлено в заказ.'),
           SizedBox(height: 20.0),
           OutlineButton(
-            borderSide: BorderSide(width: 2.0, color: Theme.of(context).primaryColor),
+            borderSide:
+                BorderSide(width: 2.0, color: Theme.of(context).primaryColor),
             highlightedBorderColor: Colors.white,
             child: Text('Открыть Фибо Меню'),
             onPressed: () {
-              Navigator.of(context).popUntil((route) => route.settings.name == IndexPage.route);
+              Navigator.of(context)
+                  .popUntil((route) => route.settings.name == IndexPage.route);
             },
           ),
           SizedBox(height: 80.0),
@@ -84,7 +84,6 @@ class _EmptyCart extends StatelessWidget {
     );
   }
 }
-
 
 Widget _cardListBuilder(BuildContext context, CartItem item) {
   final cart = Provider.of<CartModel>(context);
@@ -99,21 +98,20 @@ Widget _cardListBuilder(BuildContext context, CartItem item) {
     ),
     subtitle: item.product.description != null
         ? Text(
-          '${item.product.description}',
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-        )
+            '${item.product.description}',
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          )
         : Text(''),
     trailing: Container(
-      width: 120.0,
-      child: SpinBox(
-        min: 1,
-        max: 99,
-        value: item.qty.toDouble(),
-        onChanged: (value) {
-          item.qty = value.toInt();
-        },
-      )
-    ),
+        width: 120.0,
+        child: SpinBox(
+          min: 1,
+          max: 99,
+          value: item.qty.toDouble(),
+          onChanged: (value) {
+            item.qty = value.toInt();
+          },
+        )),
   );
 }

@@ -8,6 +8,7 @@ class CartModel extends ChangeNotifier {
 
   /// Total items stored in cart
   int get totalItems => items.length;
+
   /// Total price of all cart items
   int get totalPrice => items
       .map((e) => e.totalPrice)
@@ -39,11 +40,11 @@ class CartModel extends ChangeNotifier {
   }
 }
 
-
 ///Cart Item model
 class CartItem {
   /// Catalog product
   final Product product;
+
   /// Product quantity
   int qty;
 
@@ -51,6 +52,5 @@ class CartItem {
   int get totalPrice => product.price * this.qty;
 
   /// Constructor: create cart item from product with quantity of 1
-  CartItem(this.product)
-      : qty = 1;
+  CartItem(this.product) : qty = 1;
 }

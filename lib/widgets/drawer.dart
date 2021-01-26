@@ -41,10 +41,12 @@ class FiboDrawer extends StatelessWidget {
               maxLines: 1,
             ),
             trailing: Consumer<CartModel>(builder: (context, cart, child) {
-              return cart.totalItems > 0 ? Text(
-                '${cart.totalPrice}₽',
-                style: Theme.of(context).textTheme.headline6,
-              ) : Text('');
+              return cart.totalItems > 0
+                  ? Text(
+                      '${cart.totalPrice}₽',
+                      style: Theme.of(context).textTheme.headline6,
+                    )
+                  : Text('');
             }),
             dense: true,
             onTap: () {
@@ -181,13 +183,19 @@ Widget _drawerHeader(BuildContext context) {
                 children: [
                   AutoSizeText(
                     'Фибоначчи',
-                    style: Theme.of(context).textTheme.headline4.copyWith(color: Colors.white),
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline4
+                        .copyWith(color: Colors.white),
                     maxLines: 1,
                     textAlign: TextAlign.center,
                   ),
                   AutoSizeText(
                     'кухня • бар',
-                    style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.white),
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline5
+                        .copyWith(color: Colors.white),
                     maxLines: 1,
                     textAlign: TextAlign.center,
                   ),
@@ -231,7 +239,6 @@ Widget _itemBuilder(BuildContext context, _FiboDrawerItem item) {
   );
 }
 
-
 class _FiboDrawerItem {
   const _FiboDrawerItem({this.icon, this.title, this.url, this.badge});
   final IconData icon;
@@ -239,7 +246,6 @@ class _FiboDrawerItem {
   final String url;
   final Widget badge;
 }
-
 
 List<_FiboDrawerItem> socialItems = [
   _FiboDrawerItem(
