@@ -57,28 +57,40 @@ class __FormState extends State<_Form> {
               SizedBox(height: 16.0),
               Divider(),
               ListTile(
-                leading: Icon(Icons.person, color: Theme.of(context).primaryColor,),
+                leading: Icon(
+                  Icons.person,
+                  color: Theme.of(context).primaryColor,
+                ),
                 minLeadingWidth: 20.0,
                 title: TextField(
                   decoration: InputDecoration(hintText: 'Ваше имя'),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.phone, color: Theme.of(context).primaryColor,),
+                leading: Icon(
+                  Icons.phone,
+                  color: Theme.of(context).primaryColor,
+                ),
                 minLeadingWidth: 20.0,
                 title: TextField(
                   decoration: InputDecoration(hintText: 'Номер телефона'),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.people, color: Theme.of(context).primaryColor,),
+                leading: Icon(
+                  Icons.people,
+                  color: Theme.of(context).primaryColor,
+                ),
                 minLeadingWidth: 20.0,
                 title: TextField(
                   decoration: InputDecoration(hintText: 'Количество персон'),
                 ),
               ),
               ListTile(
-                leading: Icon(Icons.calendar_today, color: Theme.of(context).primaryColor,),
+                leading: Icon(
+                  Icons.calendar_today,
+                  color: Theme.of(context).primaryColor,
+                ),
                 minLeadingWidth: 20.0,
                 title: TextField(
                   decoration: InputDecoration(hintText: 'Дата и время'),
@@ -86,20 +98,25 @@ class __FormState extends State<_Form> {
               ),
               SizedBox(height: 32.0),
               Center(
-                child: Text('Мы перезвоним для уточнения деталей.', style: TextStyle(color: Colors.grey)),
+                child: Text('Мы перезвоним для уточнения деталей.',
+                    style: TextStyle(color: Colors.grey)),
               ),
               Divider(height: 48.0),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: OutlineButton(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Text('Забронировать', style: Theme.of(context).textTheme.subtitle1,),
+                  child: Text(
+                    'Забронировать',
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
                   borderSide: BorderSide(
                       width: 2.0, color: Theme.of(context).primaryColor),
                   highlightedBorderColor: Colors.white,
                   onPressed: () {
                     _order.save();
-                    Navigator.of(context).popUntil((route) => route.settings.name == IndexPage.route);
+                    Navigator.of(context).popUntil(
+                        (route) => route.settings.name == IndexPage.route);
                   },
                 ),
               )
@@ -144,11 +161,14 @@ class _Card extends StatelessWidget {
                 SizedBox(height: 16.0),
                 Text(company.address,
                     style: Theme.of(context).textTheme.headline6),
-                SizedBox(height: 24.0),
+                SizedBox(height: 48.0),
                 OutlineButton(
                   borderSide: BorderSide(width: 2.0, color: Colors.white),
                   highlightedBorderColor: Colors.white,
-                  child: Text('Хочу сюда!'),
+                  child: Text(
+                    'Хочу сюда!',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
                   onPressed: () {
                     Navigator.of(context)
                         .pushNamed(OrderPage.route, arguments: company);
