@@ -7,6 +7,7 @@ void main() {
 
   runApp(
     FutureBuilder(
+      // Init Firebase then launch app
       future: Firebase.initializeApp(),
       builder: (context, snapshot) {
         if (snapshot.hasError) {

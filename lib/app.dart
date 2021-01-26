@@ -16,14 +16,16 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        // Observe Cart
         ChangeNotifierProvider(create: (context) => CartModel()),
+        // Observe Catalog
         Provider(create: (context) => CatalogModel()),
       ],
       builder: (context, child) {
         return FutureBuilder(
+          // Fill catalog data once on launch
           future: Provider.of<CatalogModel>(context).init(),
           builder: (context, snapshot) {
-            print(snapshot);
             if (snapshot.hasError) {
               print(snapshot.error.toString());
             }

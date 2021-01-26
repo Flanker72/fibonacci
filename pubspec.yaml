@@ -1,7 +1,7 @@
 name: fiboeda
 description: Fibonacci Delivery App
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -14,26 +14,13 @@ dependencies:
   flutter_brand_icons: any
   url_launcher: any
   badges: any
-  #cupertino_icons: ^1.0.1
   shared_preferences: any
   provider: any
   firebase_core: any
   cloud_firestore: any
-  #share: any
   carousel_slider: any
   auto_size_text: any
   flutter_spinbox: any
-  #firebase_auth: any
-  #flutter_spinkit: any
-  #shimmer: any
-  #flutter_swiper: any
-  #flutter_staggered_grid_view: any
-  #flutter_staggered_animations: any
-  #liquid_progress_indicator: any
-  #mask_text_input_formatter: any
-  #grouped_list: any
-  #flutter_custom_clippers: any
-  #geocoder: any
 
 flutter:
   uses-material-design: true
