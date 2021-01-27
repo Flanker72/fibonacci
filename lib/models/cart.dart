@@ -34,6 +34,7 @@ class CartModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Update quantity of cart item with consumers notification
   void setQty(CartItem item, int qty) {
     item.qty = qty;
     notifyListeners();
