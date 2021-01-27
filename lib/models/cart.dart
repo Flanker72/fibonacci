@@ -34,6 +34,11 @@ class CartModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void setQty(CartItem item, int qty) {
+    item.qty = qty;
+    notifyListeners();
+  }
+
   /// Check if product is added to cart
   bool inCart(Product item) {
     return items.any((element) => element.product == item);

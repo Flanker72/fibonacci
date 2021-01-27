@@ -40,6 +40,7 @@ class __CartState extends State<_Cart> {
     return ListView(
       children: [
         ...widget.cart.items.map((e) => _cardListBuilder(context, e)).toList(),
+        _Form()
       ],
     );
   }
@@ -110,8 +111,111 @@ Widget _cardListBuilder(BuildContext context, CartItem item) {
           max: 99,
           value: item.qty.toDouble(),
           onChanged: (value) {
-            item.qty = value.toInt();
+            cart.setQty(item, value.toInt());
           },
         )),
   );
+}
+
+
+class _Form extends StatefulWidget {
+  const _Form();
+
+  @override
+  __FormState createState() => __FormState();
+}
+
+class __FormState extends State<_Form> {
+  final _formKey = GlobalKey();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Builder(
+        builder: (context) => Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              SizedBox(height: 16.0),
+              Center(
+                child: Consumer<CartModel>(
+                  builder: (context, cart, child) {
+                    return Text(
+                      'Итого ${cart.totalPrice}₽',
+                      style: Theme.of(context).textTheme.headline4,
+                    );
+                  }
+                ),
+              ),
+              SizedBox(height: 16.0),
+              Divider(),
+              ListTile(
+                leading: Icon(
+                  Icons.person,
+                  color: Theme.of(context).primaryColor,
+                ),
+                minLeadingWidth: 20.0,
+                title: TextField(
+                  decoration: InputDecoration(hintText: 'Ваше имя'),
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.phone,
+                  color: Theme.of(context).primaryColor,
+                ),
+                minLeadingWidth: 20.0,
+                title: TextField(
+                  decoration: InputDecoration(hintText: 'Номер телефона'),
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.people,
+                  color: Theme.of(context).primaryColor,
+                ),
+                minLeadingWidth: 20.0,
+                title: TextField(
+                  decoration: InputDecoration(hintText: 'Количество персон'),
+                ),
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.calendar_today,
+                  color: Theme.of(context).primaryColor,
+                ),
+                minLeadingWidth: 20.0,
+                title: TextField(
+                  decoration: InputDecoration(hintText: 'Дата и время'),
+                ),
+              ),
+              SizedBox(height: 32.0),
+              Center(
+                child: Text('Мы перезвоним для уточнения деталей.',
+                    style: TextStyle(color: Colors.grey)),
+              ),
+              Divider(height: 48.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: OutlineButton(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Оформить',
+                    style: Theme.of(context).textTheme.subtitle1,
+                  ),
+                  borderSide: BorderSide(
+                      width: 2.0, color: Theme.of(context).primaryColor),
+                  highlightedBorderColor: Colors.white,
+                  onPressed: () {
+                    Navigator.of(context).popUntil(
+                            (route) => route.settings.name == IndexPage.route);
+                  },
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
